@@ -13,9 +13,8 @@ import Header from "./Components/Header"
 export default function App() {
   return (
     <Router>
-      <div>
-        <Header/>
-
+      <Header/>
+      <div className="container-fluid">
         <Switch>
           <Route path="/list">
             <List />

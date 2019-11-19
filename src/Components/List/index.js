@@ -1,5 +1,16 @@
 import React from "react";
+import Card from "../Card"
 
 export default function List() {
-    return <h2>List</h2>;
+    return (
+        <div className="d-flex flex-wrap justify-content-center">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+        </div>
+    );
 }
