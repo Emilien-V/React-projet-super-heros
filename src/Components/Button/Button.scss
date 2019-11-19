@@ -1,0 +1,17 @@
+.btn-sh {
+    background-color: #992929;
+    color: white;
+    border-radius: 13px;
+    font-weight: 800;
+    font-size: 34px;
+    box-shadow: 10px 10px rgba(68, 54, 54, 0.5);   
+
+    &:focus {
+        box-shadow: 5px 5px rgba(68, 54, 54, 0.5);
+        background-color: #862e2e;
+    }
+
+    &:hover {
+        color: white;
+    }
+}

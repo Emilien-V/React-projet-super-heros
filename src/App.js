@@ -8,25 +8,21 @@ import {
 import Home from "./Components/Home"
 import List from "./Components/List"
 import Battle from "./Components/Battle"
-import Header from "./Components/Header"
 
 export default function App() {
   return (
     <Router>
-      <Header/>
-      <div className="container-fluid">
-        <Switch>
-          <Route path="/list">
-            <List />
-          </Route>
-          <Route path="/battle">
-            <Battle />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/list">
+          <List />
+        </Route>
+        <Route path="/battle">
+          <Battle />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </Router>
   );
 }
