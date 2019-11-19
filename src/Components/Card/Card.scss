@@ -1,0 +1,29 @@
+.card {
+    width: 20rem;
+    background-color: transparent;
+    border: none;
+    background-image: url("../../Assets/bg-card-marvel.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &.marvel {
+        background-image: url("../../Assets/bg-card-marvel.svg");
+    }
+
+    &.dc {
+        background-image: url("../../Assets/bg-card-dc.svg");
+    }
+
+    .card-img-top{
+        border-radius: 200px;
+        width: 16rem;
+        height: 16rem;
+        object-fit: cover; 
+        margin: auto;
+    }
+
+    .card-body {
+        margin: 0 3rem;
+    }
+}
