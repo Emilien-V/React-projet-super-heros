@@ -12,7 +12,7 @@ const List = (props) => {
 
     useEffect(() => {
         props.fetchHeroes();
-    });
+    },[]);
 
     console.log(props.heroes)
 
