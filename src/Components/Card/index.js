@@ -1,11 +1,13 @@
 import React from "react";
 import Checkbox from "../Checkbox"
 import { connect } from 'react-redux';
-import { selectHero } from '../../actions/creators';
+import { selectHero, deselectHero } from '../../actions/creators';
 
 import "./Card.scss"
 
 const Card = props => {
+
+    const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(hero => hero && hero.id === props.id);
 
     return (
         <div className={`card ${props.biography['publisher']}`}>
@@ -20,8 +22,8 @@ const Card = props => {
             <div className="checker">
                 <Checkbox 
                     publisher={props.biography['publisher']} 
-                    onCheck={() => {props.selectHero(props)}}
-                    check={[props.selectHeroes.hero1, props.selectHeroes.hero2].some(hero => hero && hero.id === props.id)}
+                    onCheck={() => {isSelected ? props.deselectHero(props) : props.selectHero(props)}}
+                    check={isSelected}
                 />
             </div>
         </div>
@@ -32,4 +34,4 @@ const mapStateToProps = (state) => {
     return {selectHeroes: state.selectHeroes};
 }
 
-export default connect(mapStateToProps, { selectHero })(Card);
+export default connect(mapStateToProps, { selectHero, deselectHero })(Card);

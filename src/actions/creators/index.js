@@ -4,13 +4,29 @@ import {SELECT_HERO} from '../types'
 
 //Exemple de Actions Creator
 
+export const deselectHero = (hero) => (dispatch, getState) => {
+    const state = getState();
+    let hero1 = state.selectHeroes.hero1;
+    let hero2 = state.selectHeroes.hero2;
+    
+    if(hero1 && hero1.id === hero.id) {
+        hero1 = null
+    } 
+    if (hero2 && hero2.id === hero.id) {
+        hero2 = null
+    }
+
+    dispatch({
+        type: SELECT_HERO,
+        hero1, 
+        hero2
+    });
+}
+
 export const selectHero = (hero) => (dispatch, getState) => {
     const state = getState();
     let hero1 = state.selectHeroes.hero1;
     let hero2 = state.selectHeroes.hero2;
-
-    console.log('hero', hero)
-    console.log({hero1, hero2})
     
     if(hero1) {
         if (hero2) {
@@ -22,8 +38,6 @@ export const selectHero = (hero) => (dispatch, getState) => {
     } else {
         hero1 = hero
     }
-
-    console.log({hero1, hero2}) 
 
     dispatch({
         type: SELECT_HERO,
