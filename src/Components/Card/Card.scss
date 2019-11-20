@@ -1,29 +1,101 @@
 .card {
-    width: 20rem;
+    // height: 500px;
+    width: 300px; 
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background-color: transparent;
     border: none;
-    background-image: url("../../Assets/bg-card-marvel.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    position: relative;
 
-    &.Marvel {
-        background-image: url("../../Assets/bg-card-marvel.svg");
-    }
-
-    &.DC {
-        background-image: url("../../Assets/bg-card-dc.svg");
-    }
-
-    .card-img-top{
+    img {
         border-radius: 200px;
         width: 16rem;
         height: 16rem;
         object-fit: cover; 
         margin: auto;
+        position: absolute;
+        z-index: 3;
+        transform: translateY(-43px);
     }
 
-    .card-body {
-        margin: 0 3rem;
+    &.Marvel {
+        .card-circle {
+            background-color: #957271;
+            border: 10px solid #693938 ;
+        }
+
+        .card-text {
+            background-color: #957271;
+            border-bottom: 10px solid #693938;
+            border-right: 10px solid #693938;
+            border-left: 10px solid #693938;
+        }
+    }
+
+    &.DC {
+        .card-circle {
+            background-color: #B9BDD1;
+            border: 10px solid #848CAB ;
+        }
+
+        .card-text {
+            background-color: #B9BDD1;
+            border-bottom: 10px solid #848CAB;
+            border-right: 10px solid #848CAB;
+            border-left: 10px solid #848CAB;
+        }
+    }
+
+    .card-circle {
+        height: 320px;
+        width: 320px;
+
+        transform: translateY(85px);
+
+        border-radius: 100%;
+
+        background-color: #B9BDD1;
+        border: 10px solid #848CAB ;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .card-text {
+        height: 200px;
+        width: 280px;
+        background-color: #B9BDD1;
+        border-bottom: 10px solid #848CAB;
+        border-right: 10px solid #848CAB;
+        border-left: 10px solid #848CAB;
+        z-index: 2;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding-top: 80px;
+        padding-left: 20px;
+        color: #fff;
+    
+        p {
+            font-weight: 700;
+        }
+
+        h5 {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h6 {
+            font-weight: 700;
+        }
+    }
+
+    .checker {
+        transform: translateY(-30px);
+        z-index: 4;
     }
 }

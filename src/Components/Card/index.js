@@ -8,14 +8,16 @@ import "./Card.scss"
 const Card = props => {
 
     return (
-        <div className={`card m-3 ${props.biography['publisher']}`}>
-            <img src={props.image.url} className="card-img-top" alt="placeholder" />
-            <div className="card-body">
-                <h5 className="card-title">{props.name}</h5>
-                <h6 className="card-text">{props.biography['full-name']}</h6>
-                <p className="card-text">{props.biography['publisher']}</p>
+        <div className={`card ${props.biography['publisher']}`}>
+            <img src={props.image.url} alt="img-card" />
+            <div className="card-circle">
             </div>
-            <div className="d-flex justify-content-center mb-4">
+            <div className="card-text">
+                <h5 >{props.name}</h5>
+                <h6 >{props.biography['full-name']}</h6>
+                <p >{props.biography['publisher']}</p>
+            </div>
+            <div className="checker">
                 <Checkbox 
                     publisher={props.biography['publisher']} 
                     onCheck={() => {props.selectHero(props)}}

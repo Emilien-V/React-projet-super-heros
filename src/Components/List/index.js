@@ -27,7 +27,7 @@ const List = (props) => {
                         <Card {...hero} key={index}/>
                    );
                }
-               )};
+               )}
             </div>
         </Container>
     );
