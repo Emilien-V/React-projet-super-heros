@@ -5,13 +5,15 @@ import Container from "../Container"
 
 import "./List.scss";
 import { connect } from 'react-redux';
-import { fetchHeroes } from '../../actions';
+import { fetchFirstHeroes } from '../../actions';
 
 
 const List = (props) => {
 
     useEffect(() => {
-        props.fetchHeroes();
+        if(props.heroes.length === 0){
+            props.fetchFirstHeroes();
+        }
     },[]);
 
     console.log(props.heroes)
@@ -38,5 +40,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-     { fetchHeroes })
+     { fetchFirstHeroes })
      (List);
