@@ -9,7 +9,7 @@ const Card = props => {
             <img src="https://via.placeholder.com/320x180" className="card-img-top" alt="placeholder" />
             <div className="card-body">
                 <h5 className="card-title">{props.id}</h5>
-                <p className="card-text">{props.title}</p>
+                <p className="card-text">{props.name}</p>
             </div>
             <div className="d-flex justify-content-center mb-4">
                 <Checkbox publisher={props.publisher}/>
