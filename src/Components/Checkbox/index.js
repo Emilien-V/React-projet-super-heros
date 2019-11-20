@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 
 import "./Checkbox.scss"
 
 export default function Checkbox(props) {
-    const [check, setCheck] = useState(false);
+    const {onCheck, check} = props
     return (
-        <div className={`checkbox-sh ${props.publisher}`} onClick={() => setCheck(!check)}>
+        <div className={`checkbox-sh ${props.publisher}`} onClick={() => onCheck()}>
             {check && <div className="check"/> }
         </div>
     );

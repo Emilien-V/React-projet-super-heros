@@ -1,16 +1,35 @@
-import superHeroApi from '../apis/superHeroApi';
-import keys from '../secret';
+import superHeroApi from '../../apis/superHeroApi';
+import keys from '../../secret';
+import {SELECT_HERO} from '../types'
 
 //Exemple de Actions Creator
 
-export const selectHeroes = (hero1, hero2) => {
-    //Retourne une action
-    return {
-        type: 'SELECTED_HEROES',
-        payload: {
-            hero1, hero2
+export const selectHero = (hero) => (dispatch, getState) => {
+    const state = getState();
+    let hero1 = state.selectHeroes.hero1;
+    let hero2 = state.selectHeroes.hero2;
+
+    console.log('hero', hero)
+    console.log({hero1, hero2})
+    
+    if(hero1) {
+        if (hero2) {
+            hero1 = hero2
+            hero2 = hero
+        } else {
+            hero2 = hero
         }
-    };
+    } else {
+        hero1 = hero
+    }
+
+    console.log({hero1, hero2}) 
+
+    dispatch({
+        type: SELECT_HERO,
+        hero1, 
+        hero2
+    });
 }
 
 export const fetchHeroes = () => async (dispatch, getState) => {

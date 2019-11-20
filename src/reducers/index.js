@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import heroesReducer from './heroesReducer';
+import selectHeroesReducer from './selectHeroesReducer';
 
 // const selectedHeroesReducer = (selectedHero = null, action) => {
 //     if(action.type === 'SELECTED_HEROES') {
@@ -10,5 +11,6 @@ import heroesReducer from './heroesReducer';
 // };
 
 export default combineReducers({
-    heroes: heroesReducer
+    heroes: heroesReducer,
+    selectHeroes: selectHeroesReducer
 });

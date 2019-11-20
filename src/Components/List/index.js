@@ -5,7 +5,7 @@ import Container from "../Container"
 
 import "./List.scss";
 import { connect } from 'react-redux';
-import { fetchFirstHeroes } from '../../actions';
+import { fetchFirstHeroes } from '../../actions/creators';
 
 
 const List = (props) => {
