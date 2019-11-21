@@ -1,0 +1,23 @@
+#scoreboard {
+    background-color: #F9EED7;
+    background-image: url("../../Assets/background.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-y: 100px;
+    min-height: 100vh;
+
+    .trait{
+        width: 45px;
+        height: 8px;
+        background-color: white;
+        margin: 0 55px;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        color: #8E322E;
+        font-weight: 700;
+        font-size: 3rem;
+        text-align: center;
+    }
+}
