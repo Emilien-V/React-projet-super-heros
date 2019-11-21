@@ -4,9 +4,19 @@ import { Link } from "react-router-dom";
 import "./Button.scss"
 
 export default function Button(props) {
+    if (props.to) {
+        return (
+            <Link to={props.to} className={`btn btn-sh ${props.className}`} >
+                {props.children}
+            </Link>
+        );
+    }
+    
     return (
-        <Link to={props.to} className={`btn btn-sh ${props.className}`} >
+        <button className={`btn btn-sh ${props.className}`} onClick={() => props.onClick()}>
             {props.children}
-        </Link>
+        </button>
     );
+
+    
 }

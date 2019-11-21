@@ -1,0 +1,14 @@
+.hp-container {
+    margin-top: 3rem;
+    height: 15px;
+    background-color: rgba(68, 54, 54, 0.43);
+    border-radius: 8px;
+    overflow: hidden;
+
+    .hp {
+        background-color: #1B4F1B;
+        height: 100%;
+        width: 100%;
+        transition: .3s ease-in-out;
+    }
+}
