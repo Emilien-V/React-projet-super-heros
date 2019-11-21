@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../Card"
 import SideMenu from '../SideMenu'
 import Header from "../Header"
 import Container from "../Container"
+import SearchBar from "../SearchBar"
+
 
 import "./List.scss";
 import { connect } from 'react-redux';
@@ -17,10 +19,10 @@ const List = (props) => {
         }
     },[]);
 
-
     return (
         <Container id="list" header={<Header/>}>
             <SideMenu />
+            <SearchBar />
            <div className="d-flex flex-wrap justify-content-center container">
            {props.heroes.map((hero,index) => {
                    return(

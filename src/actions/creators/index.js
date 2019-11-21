@@ -1,8 +1,15 @@
 import superHeroApi from '../../apis/superHeroApi';
 import keys from '../../secret';
 import {SELECT_HERO} from '../types'
+import {FETCH_HEROES} from '../types'
 
 //Exemple de Actions Creator
+
+export const fetchSearchHero = name => async (dispatch) => {
+    console.log(name)
+    const response = await superHeroApi.get(`/api/${ keys.API_KEY }/search/${name}`);
+    dispatch({ type: FETCH_HEROES, payload: [response.data] })
+}; 
 
 export const deselectHero = (hero) => (dispatch, getState) => {
     const state = getState();
@@ -46,15 +53,13 @@ export const selectHero = (hero) => (dispatch, getState) => {
     });
 }
 
-export const fetchHeroes = () => async (dispatch, getState) => {
-    const id = Math.floor(Math.random() * 10) + 1;
+export const fetchHero = id => async (dispatch, getState) => {
     const state = getState();
 
     if(!state.heroes.some( hero => parseInt(hero.id) === id)) {
         const response = await superHeroApi.get(`/api/${ keys.API_KEY }/${id}`);
-        dispatch({ type: 'FETCH_HEROES', payload: [response.data] })
+        dispatch({ type: FETCH_HEROES, payload: [response.data] })
     }
-
     
 }; 
 
@@ -67,7 +72,7 @@ export const fetchFirstHeroes = () => async (dispatch) => {
         
     })
     
-    Promise.all(promise).then(value => dispatch({ type: 'FETCH_HEROES', payload: value }));
+    Promise.all(promise).then(value => dispatch({ type: FETCH_HEROES, payload: value }));
 };
 
     

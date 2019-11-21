@@ -17,6 +17,7 @@ const Battle = (props) => {
 
     const handleStart = () => {
         setStart(true)
+        
     }
 
     return (

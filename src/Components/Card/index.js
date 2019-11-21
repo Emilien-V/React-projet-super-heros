@@ -2,7 +2,8 @@ import React from "react";
 import Checkbox from "../Checkbox"
 import { connect } from 'react-redux';
 import { selectHero, deselectHero } from '../../actions/creators';
-import Button from '../Button'
+import Button from '../Button';
+import { Link } from "react-router-dom";
 
 import "./Card.scss"
 
@@ -15,7 +16,7 @@ const Card = props => {
             <div className="card-circle">
             </div>
             <div className="card-text">
-                {hero && <h5 >{hero.name}</h5>}
+                {hero && <Link to={`/details/${hero && hero.id}`} className="link"><h5 >{hero.name}</h5></Link>}
                 {hero && !small &&
                     <>
                         <h6 >{hero.biography['full-name']}</h6>
@@ -23,7 +24,6 @@ const Card = props => {
                     </>
                 }
             </div>
-            {/* <Button to={`/details/${hero && hero.id}`} className="mt-5">Checker</Button> */}
             {hero && !props.disabled &&
 
                 <div className="checker">
