@@ -59,7 +59,6 @@ export const fetchHeroes = () => async (dispatch, getState) => {
 }; 
 
 export const fetchFirstHeroes = () => async (dispatch) => {
-    const heroes = [];
     const ids = [70, 149, 332, 265, 213, 644, 720, 298, 732, 107];
     const promise = [];
 

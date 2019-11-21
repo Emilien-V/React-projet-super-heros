@@ -1,13 +1,16 @@
 .SideMenu {
-    height: 100%;
-    width: 400px;
-    position: absolute;
+    height: 100vh;
+    width: 350px;
+    max-width: 100%;
+    position: fixed;
+    top: 0;
+    padding-top: 10px;
     background-color: #CABEAB;
     left: 0;
     z-index: 5;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     box-shadow:  3px 3px 15px 15px rgba(0,0,0,0.05);
     transform: translateX(-90%);
@@ -24,7 +27,7 @@
     top: 50vh;
     height: 30px;
     width: 30px;
-    left: 355px;
+    right: 15px;
     border-right: 1.5px solid white;
     border-top: 1.5px solid white;
     z-index: 998;

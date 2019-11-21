@@ -23,7 +23,7 @@ const List = (props) => {
     return (
         <Container id="list" header={<Header/>}>
             <SideMenu />
-           <div className="d-flex flex-wrap justify-content-center">
+           <div className="d-flex flex-wrap justify-content-center container">
            {props.heroes.map((hero,index) => {
                    return(
                         <Card hero={hero} key={index}/>

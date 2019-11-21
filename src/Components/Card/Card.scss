@@ -17,8 +17,27 @@
         object-fit: cover; 
         margin: auto;
         position: absolute;
-        z-index: 3;
+        z-index: 2;
         transform: translateY(-55px);
+    }
+
+    &.small {
+        img { 
+            width: 9rem;
+            height: 9rem; 
+            transform: translateY(28px)
+        }
+
+        .card-text {
+            height: 70px;
+            width: 185px;
+            padding-top: 0px
+        }
+
+        .card-circle {
+            height: 200px;
+            width: 200px;
+        }
     }
 
     &.Marvel {
@@ -78,6 +97,7 @@
         border-bottom-right-radius: 20px;
         padding-top: 30px;
         padding-left: 20px;
+        padding-right: 20px;
         color: #fff;
     
         p {
@@ -87,6 +107,7 @@
         h5 {
             font-weight: 700;
             text-transform: uppercase;
+            text-align: center; 
         }
 
         h6 {

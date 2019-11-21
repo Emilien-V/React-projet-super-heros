@@ -1,29 +1,33 @@
 import React, { useState } from "react";
+import { connect } from 'react-redux';
 import Button from "../Button";
 import Card from "../Card";
 
 import "./SideMenu.scss";
 
 
-const SideMenu = () => {
+const SideMenu = (props) => {
 
     const [ active, setActive ] = useState(false);
 
     const toggleClass = () => {
         setActive(!active);
-        console.log(active);
     }
+    const {hero1, hero2} = props.selectHeroes
 
     return(
         <div className={`SideMenu ${active ? 'open' : null}`}>
             <div className={`open-slider ${active ? 'open' : null}`} onClick={toggleClass}>
             </div>
-
-            <Card biography={{publisher: 'DC'}}/>
-
-            <Button to="/battle" className="mt-5">FIGHT</Button>
+            { <Card hero={hero1} small disabled/> }
+            { <Card hero={hero2} small disabled/> }
+            <Button to="/battle" className="mt-3">FIGHT</Button>
         </div>
     );
 }
 
-export default SideMenu;
+const mapStateToProps = (state) => {
+    return {selectHeroes: state.selectHeroes};
+}
+
+export default connect(mapStateToProps, null)(SideMenu);

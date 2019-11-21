@@ -7,24 +7,23 @@ import "./Card.scss"
 
 const Card = props => {
 
-    const {hero} = props
+    const {hero, small} = props
     const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(selectHero => selectHero && hero && selectHero.id === hero.id);
 
     return (
-        <div className={`card ${hero ? hero.biography['publisher'] : 'disabled'}`}>
-            {hero && <img src={hero.image.url} alt="img-card" />}
+        <div className={`card ${hero ? hero.biography['publisher']: 'disabled'} ${small && 'small'} `}>
             <div className="card-circle">
             </div>
             <div className="card-text">
-                {hero &&
+                {hero && <h5 >{hero.name}</h5>}
+                {hero && !small &&
                     <>
-                        <h5 >{hero.name}</h5>
                         <h6 >{hero.biography['full-name']}</h6>
                         <p >{hero.biography['publisher']}</p>
                     </>
                 }
             </div>
-            {hero &&
+            {hero && !props.disabled &&
                 <div className="checker">
                     <Checkbox 
                         publisher={hero.biography['publisher']} 
@@ -33,6 +32,7 @@ const Card = props => {
                     />
                 </div>
             }
+            {hero && <img src={hero.image.url} alt="img-card" />}
         </div>
     );
 }
