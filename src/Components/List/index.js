@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Card from "../Card"
+import SideMenu from '../SideMenu'
 import Header from "../Header"
 import Container from "../Container"
 
@@ -21,6 +22,7 @@ const List = (props) => {
 
     return (
         <Container id="list" header={<Header/>}>
+            <SideMenu />
            <div className="d-flex flex-wrap justify-content-center">
            {props.heroes.map((hero,index) => {
                    return(

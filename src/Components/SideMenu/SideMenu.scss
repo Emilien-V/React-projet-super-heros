@@ -1,0 +1,37 @@
+.SideMenu {
+    height: 100%;
+    width: 400px;
+    position: absolute;
+    background-color: #CABEAB;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow:  3px 3px 15px 15px rgba(0,0,0,0.05);
+    transform: translateX(-90%);
+    transition: .3s ease-in-out;
+
+    &.open {
+        transform: translateX(0%);
+    }
+}
+
+.open-slider{
+    cursor: pointer;
+    position: absolute;
+    top: 50vh;
+    height: 30px;
+    width: 30px;
+    left: 355px;
+    border-right: 1.5px solid white;
+    border-top: 1.5px solid white;
+    z-index: 998;
+    transition: transform .6s ease-in-out;
+    transform: rotate(45deg);
+
+    &.open {
+        transform: rotate(45deg) rotate3d(1, 1, 0, 180deg);;
+    }
+}
