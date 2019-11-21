@@ -10,4 +10,17 @@
     .vs {
         width: 150px;
     }
+
+    .hero {
+        transition: all 0.3 ease-in-out;
+    }
+
+    .win {
+        transform: scale(1.1);
+    }
+
+    .loose {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
 }

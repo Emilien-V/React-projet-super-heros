@@ -17,6 +17,8 @@ const Battle = (props) => {
     const [start, setStart] = useState(false)
     const [hp1, setHp1] = useState(100)
     const [hp2, setHp2] = useState(100)
+    const [win, setWin] = useState(0)
+    const [end, setEnd] = useState(false)
 
     useEffect(() => (() => {
         stopGame()
@@ -36,6 +38,7 @@ const Battle = (props) => {
             setHp2(hp2 => {
                 if (hp2 - hit < 0) {
                     stopGame()
+                    setWin(1)
                     return 0
                 }
                 return (hp2 - hit)
@@ -49,6 +52,7 @@ const Battle = (props) => {
                 
                 if (hp1 - hit < 0) {
                     stopGame()
+                    setWin(2)
                     return 0
                 }
                 return (hp1 - hit)
@@ -60,6 +64,7 @@ const Battle = (props) => {
     }
 
     const stopGame = () => {
+        setEnd(true)
         clearInterval(intervalHero1)
         clearInterval(intervalHero2)
     }
@@ -67,7 +72,7 @@ const Battle = (props) => {
     return (
         <Container id="battle" header={<Header/>}>
             <div className="row d-flex justify-content-around align-items-center flex-wrap mh-100vh">
-                <div className="hero">
+                <div className={`hero ${win === 1 ? 'win' : ''} ${win === 2 ? 'loose' : ''}`}>
                     <Card hero={hero1} disabled/>
                     {start && <HpBar hp={hp1}/>}
                 </div>
@@ -76,8 +81,11 @@ const Battle = (props) => {
                     { hero1 && hero2 && !start &&
                         <Button className="mt-5" onClick={() => handleStart()}>Start battle</Button>
                     }
+                    { hero1 && hero2 && end &&
+                        <Button className="mt-5" to="/">Scoreboard</Button>
+                    }
                 </div>
-                <div className="hero">
+                <div className={`hero ${win === 1 ? 'loose' : '' } ${win === 2 ? 'win' : '' }`}>
                     <Card hero={hero2} disabled/>
                     {start && <HpBar hp={hp2}/>}
                 </div>
