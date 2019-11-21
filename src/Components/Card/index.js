@@ -8,7 +8,7 @@ import "./Card.scss"
 const Card = props => {
 
     const {hero} = props
-    const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(selecthero => selecthero && selecthero.id === hero.id);
+    const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(selectHero => selectHero && hero && selectHero.id === hero.id);
 
     return (
         <div className={`card ${hero ? hero.biography['publisher'] : 'disabled'}`}>
