@@ -8,24 +8,31 @@ import "./Card.scss"
 const Card = props => {
 
     const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(hero => hero && hero.id === props.id);
+    const {hero} = props
 
     return (
-        <div className={`card ${props.biography['publisher']}`}>
-            <img src={props.image.url} alt="img-card" />
+        <div className={`card ${hero ? hero.biography['publisher'] : 'disabled'}`}>
+            {hero && <img src={hero.image.url} alt="img-card" />}
             <div className="card-circle">
             </div>
             <div className="card-text">
-                <h5 >{props.name}</h5>
-                <h6 >{props.biography['full-name']}</h6>
-                <p >{props.biography['publisher']}</p>
+                {hero &&
+                    <>
+                        <h5 >{hero.name}</h5>
+                        <h6 >{hero.biography['full-name']}</h6>
+                        <p >{hero.biography['publisher']}</p>
+                    </>
+                }
             </div>
-            <div className="checker">
-                <Checkbox 
-                    publisher={props.biography['publisher']} 
-                    onCheck={() => {isSelected ? props.deselectHero(props) : props.selectHero(props)}}
-                    check={isSelected}
-                />
-            </div>
+            {hero &&
+                <div className="checker">
+                    <Checkbox 
+                        publisher={hero.biography['publisher']} 
+                        onCheck={() => {isSelected ? props.deselectHero(hero) : props.selectHero(hero)}}
+                        check={isSelected}
+                    />
+                </div>
+            }
         </div>
     );
 }

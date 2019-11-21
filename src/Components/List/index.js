@@ -26,7 +26,7 @@ const List = (props) => {
            <div className="d-flex flex-wrap justify-content-center">
            {props.heroes.map((hero,index) => {
                    return(
-                        <Card {...hero} key={index}/>
+                        <Card hero={hero} key={index}/>
                    );
                }
                )}
