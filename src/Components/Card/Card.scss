@@ -43,7 +43,7 @@
     &.Marvel {
         .card-circle {
             background-color: #957271;
-            border: 10px solid #693938 ;
+            border: 10px solid #693938;
         }
 
         .card-text {
@@ -57,7 +57,7 @@
     &.DC {
         .card-circle {
             background-color: #B9BDD1;
-            border: 10px solid #848CAB ;
+            border: 10px solid #848CAB;
         }
 
         .card-text {
@@ -65,6 +65,20 @@
             border-bottom: 10px solid #848CAB;
             border-right: 10px solid #848CAB;
             border-left: 10px solid #848CAB;
+        }
+    }
+
+    &.disabled {
+        .card-circle {
+            background-color: #E6E6E6;
+            border: 10px solid #CCCCCC;
+        }
+
+        .card-text {
+            background-color: #E6E6E6;
+            border-bottom: 10px solid #CCCCCC;
+            border-right: 10px solid #CCCCCC;
+            border-left: 10px solid #CCCCCC;
         }
     }
 

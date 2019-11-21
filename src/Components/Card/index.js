@@ -2,6 +2,7 @@ import React from "react";
 import Checkbox from "../Checkbox"
 import { connect } from 'react-redux';
 import { selectHero, deselectHero } from '../../actions/creators';
+import Button from '../Button'
 
 import "./Card.scss"
 
@@ -9,7 +10,6 @@ const Card = props => {
 
     const {hero, small} = props
     const isSelected = [props.selectHeroes.hero1, props.selectHeroes.hero2].some(selectHero => selectHero && hero && selectHero.id === hero.id);
-
     return (
         <div className={`card ${hero ? hero.biography['publisher']: 'disabled'} ${small && 'small'} `}>
             <div className="card-circle">
@@ -23,7 +23,9 @@ const Card = props => {
                     </>
                 }
             </div>
+            {/* <Button to={`/details/${hero && hero.id}`} className="mt-5">Checker</Button> */}
             {hero && !props.disabled &&
+
                 <div className="checker">
                     <Checkbox 
                         publisher={hero.biography['publisher']} 

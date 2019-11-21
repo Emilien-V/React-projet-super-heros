@@ -17,8 +17,6 @@ const List = (props) => {
         }
     },[]);
 
-    console.log(props.heroes)
-
 
     return (
         <Container id="list" header={<Header/>}>
