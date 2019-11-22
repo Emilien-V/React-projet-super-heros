@@ -17,19 +17,21 @@ const SearchBar = (props) => {
     }
 
     const handleSubmit = () => {
-        props.fetchSearchHero(search);
-        props.search(true);
-    }
+        if(search !== "") {
+            props.fetchSearchHero(search);
+            props.search(true);
+        }  
+    } 
 
     const handleRefresh = () => {
         props.search(false);
     }
 
     return(
-        <div className="form">
-            <input onChange={handleChange} value={search} type="search"></input>
-            <button onClick={handleSubmit}>Chercher</button>
-            <button onClick={handleRefresh}>Refresh</button>
+        <div className="form d-flex ">
+            <input onChange={handleChange} value={search} type="search" className="form-control"></input>
+            <button className="btn btn-secondary ml-2" onClick={handleSubmit}>Chercher</button>
+            <button className="btn btn-secondary ml-2" onClick={handleRefresh}>Refresh</button>
         </div>
     );
 }

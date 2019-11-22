@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import HeroDetails from '../HeroDetails';
 import Container from '../Container';
 import Header from '../Header';
+import Spinner from "../Spinner"
 
 import { fetchHero } from '../../actions/creators';
 
@@ -22,7 +23,7 @@ const Details = (props) => {
     } else {
         props.fetchHero(props.match.params.id);
         return(
-            <p>Attendez</p>
+            <Spinner />
         )
     }
     

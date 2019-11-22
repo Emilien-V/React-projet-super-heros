@@ -3,6 +3,7 @@ import Card from "../Card";
 
 import "./SearchResults.scss";
 import { connect } from 'react-redux';
+import Spinner from '../Spinner';
 
 
 
@@ -10,21 +11,27 @@ const SearchResults = (props) => {
 
     console.log(props.searchHeroes[0] && props.searchHeroes[0].results);
 
+    
+
 
 
     return (
         
            <div>
-               {!props.searchHeroes[0] ? <p>Attendez</p> : <div className="d-flex flex-wrap justify-content-center container">
-           {props.searchHeroes[0].results.map((hero,index) => {
-                   return(
-                        <Card hero={hero} key={index}/>
-                   );
-               }
-               )
+               { props.searchHeroes[0] &&
+               props.searchHeroes[0].error ? <p className="text-center text-muted mt-2">{props.searchHeroes[0].error}</p> :
+               !props.searchHeroes[0] ? <Spinner /> : <div className="d-flex flex-wrap justify-content-center container">
+               {props.searchHeroes[0].results.map((hero,index) => {
+                       return(
+                            <Card hero={hero} key={index}/>
+                       );
+                   }
+                   )
+                   
+                }
+                </div>}
                
-            }
-            </div>}
+               
            </div>
     );
 }

@@ -1,6 +1,21 @@
 .form {
-    position: absolute;
-    z-index: 999;
-    top: 550px;
-    left: 300px;
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 500px;
+}
+
+.btn-secondary {
+    background-color: #992929;
+    border: #992929;
+    box-shadow: 5px 5px rgba(68, 54, 54, 0.5);   
+    font-weight: 700;
+
+    &:focus {
+        box-shadow: 5px 5px rgba(68, 54, 54, 0.5);
+        background-color: #862e2e;
+    }
+
+    &:hover {
+        background-color: #862e2e;
+    }
 }
