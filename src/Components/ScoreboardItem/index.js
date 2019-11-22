@@ -13,4 +13,4 @@ const ScoreboardItem = (props) => {
   );
 }
 
-export default ScoreboardItem
+export default ScoreboardItem;

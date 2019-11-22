@@ -13,7 +13,7 @@ const SideMenu = (props) => {
     const toggleClass = () => {
         setActive(!active);
     }
-    const {hero1, hero2} = props.selectHeroes
+    const {hero1, hero2} = props.selectHeroes;
 
     return(
         <div className={`SideMenu ${active ? 'open' : null}`}>

@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React from "react";
 import Card from "../Card";
 
 import "./SearchResults.scss";
@@ -8,12 +8,6 @@ import Spinner from '../Spinner';
 
 
 const SearchResults = (props) => {
-
-    console.log(props.searchHeroes[0] && props.searchHeroes[0].results);
-
-    
-
-
 
     return (
         
@@ -29,9 +23,7 @@ const SearchResults = (props) => {
                    )
                    
                 }
-                </div>}
-               
-               
+                </div>}  
            </div>
     );
 }

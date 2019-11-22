@@ -2,7 +2,6 @@ import React from "react";
 import Checkbox from "../Checkbox"
 import { connect } from 'react-redux';
 import { selectHero, deselectHero } from '../../actions/creators';
-import Button from '../Button';
 import { Link } from "react-router-dom";
 
 import "./Card.scss"

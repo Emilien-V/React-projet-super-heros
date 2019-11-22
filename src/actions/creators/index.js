@@ -3,14 +3,11 @@ import keys from '../../secret';
 import {SELECT_HERO, FETCH_HEROES, ADD_TO_SCROREBOARD, FETCH_SEARCH_HEROES} from '../types'
 
 export const fetchSearchHero = name => async (dispatch) => {
-    console.log(name)
     const response = await superHeroApi.get(`/api/${ keys.API_KEY }/search/${name}`);
     dispatch({ type: FETCH_SEARCH_HEROES, payload: [response.data] })
-    console.log(response.data)
 }; 
 
 export const addToScoreboard = (hero1, hero2) => (dispatch) => {
-    console.log(hero1, hero2)
     dispatch({
         type: ADD_TO_SCROREBOARD,
         heroes: [hero1, hero2]
