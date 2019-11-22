@@ -7,7 +7,7 @@ const HeroDetails = (props) => {
     console.log(props)
 
     return(
-            <div class="row align-items-center">
+            <div class="row align-items-center mt-5">
             <div class="col-xl-6 col-xs-12 img">
                 <img className="img-details " src={props.image.url} />
             </div>

@@ -11,24 +11,27 @@ const SearchBar = (props) => {
 
     const handleChange = event => {
         setSearch(event.target.value);
+        if(event.target.value = "") {
+            props.search(false);
+        }
     }
 
     const handleSubmit = () => {
         props.fetchSearchHero(search);
+        props.search(true);
+    }
+
+    const handleRefresh = () => {
+        props.search(false);
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div className="form">
             <input onChange={handleChange} value={search} type="search"></input>
-            <input type="submit"></input>
-        </form>
+            <button onClick={handleSubmit}>Chercher</button>
+            <button onClick={handleRefresh}>Refresh</button>
+        </div>
     );
 }
 
-const mapStateToProps = (state) => {
-
-    return {heroes: state.heroes};
-    
-}
-
-export default connect( mapStateToProps,{ fetchSearchHero })(SearchBar);
+export default connect( null,{ fetchSearchHero })(SearchBar);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,7 +11,17 @@ import Battle from "./Components/Battle"
 import Details from "./Components/Details"
 import Scoreboard from "./Components/Scoreboard"
 
-export default function App() {
+import { connect } from 'react-redux';
+import { fetchFirstHeroes } from './actions/creators';
+
+const App = props => {
+
+  useEffect(() => {
+    if(props.heroes.length === 0){
+        props.fetchFirstHeroes();
+    }
+  },[]);
+
   return (
     <Router>
       <Switch>
@@ -24,3 +34,13 @@ export default function App() {
     </Router>
   );
 }
+
+const mapStateToProps = (state) => {
+
+  return {heroes: state.heroes};
+}
+
+export default connect(
+  mapStateToProps,
+   { fetchFirstHeroes })
+   (App);

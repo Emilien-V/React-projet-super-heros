@@ -4,6 +4,7 @@ import SideMenu from '../SideMenu'
 import Header from "../Header"
 import Container from "../Container"
 import SearchBar from "../SearchBar"
+import SearchResults from "../SearchResults"
 
 
 import "./List.scss";
@@ -13,24 +14,23 @@ import { fetchFirstHeroes } from '../../actions/creators';
 
 const List = (props) => {
 
-    useEffect(() => {
-        if(props.heroes.length === 0){
-            props.fetchFirstHeroes();
-        }
-    },[]);
+    const [ search, setSearch ] = useState(false);
 
     return (
         <Container id="list" header={<Header/>}>
             <SideMenu />
-            <SearchBar />
-           <div className="d-flex flex-wrap justify-content-center container">
+            <SearchBar search={(e) => setSearch(e)}/>
+            {search ? <SearchResults /> : <div className="d-flex flex-wrap justify-content-center container">
            {props.heroes.map((hero,index) => {
                    return(
                         <Card hero={hero} key={index}/>
                    );
                }
-               )}
-            </div>
+               )
+               
+            }
+            </div>}
+           
         </Container>
     );
 }

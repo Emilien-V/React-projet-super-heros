@@ -1,5 +1,6 @@
-form {
+.form {
     position: absolute;
-    top: 50px;
+    z-index: 999;
+    top: 550px;
     left: 300px;
 }
